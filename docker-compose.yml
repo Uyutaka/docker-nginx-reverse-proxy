@@ -9,24 +9,6 @@ services:
     - 8080:80
     restart: always
 
-#  web-site1:
-#    image: httpd:latest
-#    container_name: web-site1
-#    ports: # commenting ports to make them private so this service can only be reached by nginx proxy
-#    - 8000:80
-#    volumes:
-#    - ./app1:/usr/local/apache2/htdocs
-#    restart: always
-
-#  web-site2:
-#    image: httpd:latest
-#    container_name: web-site2
-#    ports:
-#    - 8001:80
-#    volumes:
-#    - ./app2:/usr/local/apache2/htdocs
-#    restart: always
-
   gateway:
     image: nginx:latest
     container_name: gateway
@@ -37,6 +19,4 @@ services:
       - ./html:/etc/nginx/html
     depends_on:
       - web-site0
- #     - web-site1
- #     - web-site2
     restart: always
